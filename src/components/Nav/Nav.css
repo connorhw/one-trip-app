@@ -1,0 +1,13 @@
+.menu {
+    list-style-type: none;
+    
+}
+
+a {
+    display: inline-block;
+    margin: 5px;
+}
+
+.hamburger {
+    float: right;
+  }
