@@ -7,7 +7,7 @@ function Landing() {
       
             <div className='landing'>
                 <div>
-                    Document each trip for free. Treat this application is a travel journal.
+                    Document each trip for free. Treat this application as a travel journal.
                 </div><br /><br />
                 <label>Have an account?</label>
                 <Link to={`/SignIn`} className='form-link'>Sign In</Link>

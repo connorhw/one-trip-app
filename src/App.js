@@ -1,31 +1,45 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import Nav from './components/Nav/Nav.js'
-import Landing from './components/Landing/Landing.js';
+//import Landing from './components/Landing/Landing.js';
 import Home from './components/Home/Home.js';
 import NewTrip from './components/NewTrip/NewTrip.js';
 import Vault from '../src/components/Vault/Vault';
-import SignIn from '../src/components/SignIn/SignIn';
-import SignUp from '../src/components/SignUp/SignUp';
+//import SignIn from '../src/components/SignIn/SignIn';
+//import SignUp from '../src/components/SignUp/SignUp';
+import TripContext from './components/TripContext/TripContext.js';
+import TRIPS from './inventory';
+//import { Context } from 'mocha';
+import TripPage from './components/TripPage/TripPage.js';
 
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      trips: TRIPS
+    }
+  }
 
-  
+  render() {
+    const contextValue = {
+      trips: this.state.trips
+    }
     return (
+      <TripContext.Provider value={contextValue}>
       <BrowserRouter>
         <main className='App'>
           <header>
-            Header pic here
+          <img src="https://user-images.githubusercontent.com/22334563/104141549-2fe45a80-536c-11eb-958c-44702bd13121.jpg" alt="suitcase" height="300" width="484"/>
           </header>
           <div className='content'>
             <h2>One Trip</h2>
             <Nav />
-            <Route 
+            
+            {/*<Route 
               exact
               path='/'
               component={Landing}
-            />
+            />*/}
             <Route 
               exact
               path='/Home'
@@ -41,7 +55,13 @@ class App extends Component {
               path='/Vault'
               component={Vault}
             />
-            <Route 
+            <Route
+              exact
+              path='/TripPage'
+              component={TripPage}
+            />
+
+            {/*<Route 
               exact
               path='/SignIn'
               component={SignIn}
@@ -50,7 +70,7 @@ class App extends Component {
               exact
               path='/SignUp'
               component={SignUp}
-            />
+            />*/}
   
           </div>
           {/* content goes here */
@@ -58,6 +78,7 @@ class App extends Component {
           }
         </main>
       </BrowserRouter>
+      </TripContext.Provider>
     );
   }
 }

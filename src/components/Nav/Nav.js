@@ -1,16 +1,16 @@
 import React from 'react'
-import {Link, BrowserRouter} from 'react-router-dom'
+import { Link /*, BrowserRouter*/} from 'react-router-dom'
 import './Nav.css'
 
 export default class Nav extends React.Component {
     render() {
         return (
                 <nav className='nav-bar'>
-                    <div className='hamburger'>☰</div>
+                    {/*<div className='hamburger'>☰</div>*/}
                     <div className='menu'>
-                        <Link to={`/`}>
+                        {/*<Link to={`/`}>
                             Landing
-                        </Link>
+                        </Link>*/}
                         <Link to={`/Home`}>
                             Home
                         </Link>
