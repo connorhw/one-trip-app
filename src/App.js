@@ -7,8 +7,7 @@ import NewTrip from './components/NewTrip/NewTrip.js';
 import Vault from '../src/components/Vault/Vault';
 //import SignIn from '../src/components/SignIn/SignIn';
 //import SignUp from '../src/components/SignUp/SignUp';
-import TripContext from './components/TripContext/TripContext.js';
-import TRIPS from './inventory';
+import TripsContext from './components/TripsContext/TripsContext.js';
 //import { Context } from 'mocha';
 import TripPage from './components/TripPage/TripPage.js';
 
@@ -16,8 +15,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trips: TRIPS
+      trips: []
     }
+  }
+
+  componentDidMount() {
+    const allTripsUrl = 'http://localhost:8000/api/trips'
+    fetch(allTripsUrl, {
+      method:'GET',
+    })
+     .then(response => {
+      if(!response.ok) {
+        throw new Error(response.status)
+      }
+      const res = response.json()
+      console.log(res)
+      return res;
+     })
+      .then(res => {
+        this.setState({
+          trips: res
+        })
+      })
   }
 
   render() {
@@ -25,7 +44,7 @@ class App extends Component {
       trips: this.state.trips
     }
     return (
-      <TripContext.Provider value={contextValue}>
+      <TripsContext.Provider value={contextValue}>
       <BrowserRouter>
         <main className='App'>
           <header>
@@ -42,7 +61,7 @@ class App extends Component {
             />*/}
             <Route 
               exact
-              path='/Home'
+              path='/'
               component={Home}
             />
             <Route 
@@ -78,7 +97,7 @@ class App extends Component {
           }
         </main>
       </BrowserRouter>
-      </TripContext.Provider>
+      </TripsContext.Provider>
     );
   }
 }

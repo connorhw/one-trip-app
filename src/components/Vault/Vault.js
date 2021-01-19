@@ -1,30 +1,35 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import './Vault.css'
-import TripContext from '../TripContext/TripContext'
+import TripsContext from '../TripsContext/TripsContext'
+import Trip from '../Trip/Trip'
+import { Component } from 'react'
 
 
-class Vault extends React.Component {
-    static contextType = TripContext
+class Vault extends Component {
+    static contextType = TripsContext;
     render() {
         console.log('context is', this.context)
         return (
-            <div className='vault'>
-            <h3>All the places you've been:</h3>
-            <Link to={'/TripPage'}>Example trip page here</Link>
-                {   
-                    Object.keys(this.context.trips).map((trip, index) => {
-                        return (
-                            <p key={index}>{this.context.trips[trip][0].trip_name}</p>
-                        )
-                    })
-                }
-            </div>
+            <section className='vault'>
+            <h3 className='vaultHeader'>All the places you've been:</h3>
+            <ul>
+                {this.context.trips.map(trip =>
+                    <li key={trip.id}>
+                        <Trip
+                            id={trip.id}
+                            name={trip.trip_name}
+                        />
+                    </li>
+                )}
+            </ul>
+            </section>
         )
-    }
-    
-        
-    
+    }  
 }
 
 export default Vault;
+
+Vault.defaultProps = {
+    trips: [],
+}
