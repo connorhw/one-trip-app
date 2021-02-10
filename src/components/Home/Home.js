@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Home.css'
 
 function Home() {
@@ -10,6 +11,8 @@ function Home() {
                 <li>'New Plant' allows you to create new trips that you can access from your vault</li>
                 <li>You're able to edit or delete any of the trips</li>
             </ul>
+            <Link to={`SignIn`}>Sign In</Link>
+            <Link to={`SignUp`}>Sign Up</Link>
             
            
         </div>

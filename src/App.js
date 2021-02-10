@@ -5,8 +5,8 @@ import Nav from './components/Nav/Nav.js'
 import Home from './components/Home/Home.js';
 import NewTrip from './components/NewTrip/NewTrip.js';
 import Vault from '../src/components/Vault/Vault';
-//import SignIn from '../src/components/SignIn/SignIn';
-//import SignUp from '../src/components/SignUp/SignUp';
+import SignIn from '../src/components/SignIn/SignIn';
+import SignUp from '../src/components/SignUp/SignUp';
 import TripsContext from './components/TripsContext/TripsContext.js';
 //import { Context } from 'mocha';
 import TripPage from './components/TripPage/TripPage.js';
@@ -79,8 +79,7 @@ class App extends Component {
               path='/TripPage'
               component={TripPage}
             />
-
-            {/*<Route 
+            <Route 
               exact
               path='/SignIn'
               component={SignIn}
@@ -89,7 +88,7 @@ class App extends Component {
               exact
               path='/SignUp'
               component={SignUp}
-            />*/}
+            />
   
           </div>
           {/* content goes here */
