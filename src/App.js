@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import Nav from './components/Nav/Nav.js'
-//import Landing from './components/Landing/Landing.js';
+import Landing from './components/Landing/Landing.js';
 import Home from './components/Home/Home.js';
 import NewTrip from './components/NewTrip/NewTrip.js';
 import Vault from '../src/components/Vault/Vault';
@@ -54,14 +54,14 @@ class App extends Component {
             <h2>One Trip</h2>
             <Nav />
             
-            {/*<Route 
-              exact
-              path='/'
-              component={Landing}
-            />*/}
             <Route 
               exact
               path='/'
+              component={Landing}
+            />
+            <Route 
+              exact
+              path='/Home'
               component={Home}
             />
             <Route 
@@ -91,9 +91,7 @@ class App extends Component {
             />
   
           </div>
-          {/* content goes here */
-            
-          }
+          {/* content goes here */}
         </main>
       </BrowserRouter>
       </TripsContext.Provider>

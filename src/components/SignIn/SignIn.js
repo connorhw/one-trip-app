@@ -4,6 +4,8 @@ import './SignIn.css';
 function SignIn() {
     return (
         <form className='sign-in-form'>
+            <label>Username: </label>
+            <input required/><br />
             <label htmlFor='email'>E-Mail: </label><br />
             <input id='email' name='email' type='text' placeholder='Example123@domain.net' size='21' required /><br /><br />
             <label htmlFor='password'>Password: </label><br />
