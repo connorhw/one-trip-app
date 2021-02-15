@@ -89,6 +89,12 @@ class App extends Component {
               path='/SignUp'
               component={SignUp}
             />
+            <Route
+              exact
+              path='/trips/:tripId'
+              component={TripPage}
+            
+            />
   
           </div>
           {/* content goes here */}

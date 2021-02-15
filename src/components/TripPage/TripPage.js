@@ -6,6 +6,8 @@ import "./TripPage.css"
 export default class TripPage extends Component {
 
     render() {
+        console.log('props:')
+        console.log('')
         return (
             <section>
                 <h3>-- Trip name here --</h3>
