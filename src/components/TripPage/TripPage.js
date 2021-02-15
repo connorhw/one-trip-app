@@ -1,13 +1,14 @@
 import React from 'react'
 //import { render } from "@testing-library/react"
 import { Component } from "react"
+import TripsContext from '../TripsContext/TripsContext'
 import "./TripPage.css"
 
 export default class TripPage extends Component {
-
+    static contextType = TripsContext
     render() {
         console.log('props:')
-        console.log('')
+        console.log(this.context)
         return (
             <section>
                 <h3>-- Trip name here --</h3>
