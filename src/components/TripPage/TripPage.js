@@ -9,13 +9,15 @@ export default class TripPage extends Component {
     render() {
         console.log('props:')
         console.log(this.context)
+        const selected = this.context.trips.find(trip => {
+            return (this.props.match.params.tripId == trip.id)
+        })
         return (
             <section>
-                <h3>-- Trip name here --</h3>
-                <h3>-- Places of interest here --</h3>
-                <h3>-- Your favorite part of the trip here --</h3>
-                <h3>-- Photo here --</h3>
-
+                <h3>{selected.trip_name}</h3>
+                <div>{selected.places}</div>
+                <div>{selected.fav_part}</div>
+                <div>{selected.journal}</div>
             </section>
         )
     }
