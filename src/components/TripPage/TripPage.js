@@ -14,10 +14,10 @@ export default class TripPage extends Component {
         })
         return (
             <section>
-                <h3>{selected.trip_name}</h3>
-                <div>{selected.places}</div>
-                <div>{selected.fav_part}</div>
-                <div>{selected.journal}</div>
+                <h3>Trip Name: {selected.trip_name}</h3>
+                <div>Places: {selected.places}</div>
+                <div>Favorite Part: {selected.fav_part}</div>
+                <div>Journal: {selected.journal}</div>
             </section>
         )
     }
