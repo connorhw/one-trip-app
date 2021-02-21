@@ -1,6 +1,7 @@
 import React from 'react'
 //import { render } from "@testing-library/react"
 import { Component } from "react"
+import { Link } from 'react-router-dom'
 import TripsContext from '../TripsContext/TripsContext'
 import "./TripPage.css"
 
@@ -19,6 +20,7 @@ export default class TripPage extends Component {
         })
         return (
             <div>
+                <Link>edit trip</Link>
                 <section>
                     <h3>Trip Name: {selected.trip_name}</h3>
                     <div>Places: {selected.places}</div>
