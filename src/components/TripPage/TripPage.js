@@ -19,10 +19,10 @@ export default class TripPage extends Component {
             return (this.props.match.params.tripId == trip.id)
         })
         return (
-            <div>
+            <div className='trip-info'>
                 <Link>edit trip</Link>
                 <section>
-                    <h3>Trip Name: {selected.trip_name}</h3>
+                    <h3>{selected.trip_name}</h3>
                     <div>Places: {selected.places}</div>
                     <div>Favorite Part: {selected.fav_part}</div>
                     <div>Journal: {selected.journal}</div>
