@@ -8,3 +8,35 @@
 button {
     margin: 10px;
 }
+
+.journal-section {
+    height: 200px;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    font-size: smaller;
+}
+
+.trip-places {
+    border: 1px solid black;
+    height: 100px;
+    margin-bottom: 5px;
+    margin: 5px;
+    padding: 5px;
+    font-size: smaller;
+}
+
+.trip-favs {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    font-size: smaller;
+}
+
+label {
+    font-size: small;
+}
+
+a.edit {
+    font-size: x-small;
+}

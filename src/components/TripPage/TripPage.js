@@ -20,12 +20,15 @@ export default class TripPage extends Component {
         })
         return (
             <div className='trip-info'>
-                <Link>edit trip</Link>
+                <Link className='edit'>edit trip</Link>
                 <section>
                     <h3>{selected.trip_name}</h3>
-                    <div>Places: {selected.places}</div>
-                    <div>Favorite Part: {selected.fav_part}</div>
-                    <div>Journal: {selected.journal}</div>
+                    <label>Favorite Part:</label>
+                    <div className='trip-favs'>{selected.fav_part}</div>
+                    <label>Places:</label>
+                    <div className='trip-places'>Places: {selected.places}</div>
+                    <label>Journal:</label>
+                    <div className='journal-section'>Journal: {selected.journal}</div>
                 </section>
                 <button onClick={() => this.deleteTrip(selected.id)}>delete</button>
             </div>
