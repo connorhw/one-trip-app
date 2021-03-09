@@ -4,10 +4,41 @@ import './Vault.css'
 import TripsContext from '../TripsContext/TripsContext'
 import Trip from '../Trip/Trip'
 import { Component } from 'react'
+import TripsApiService from '../services/trip-api-service'
+import TripListContext from '../TripsContext/TripListContext'
+import { Section } from '../../components/Utils/Utils'
 
 
 class Vault extends Component {
-    static contextType = TripsContext;
+    static contextType = TripListContext;
+    componentDidMount() {
+        this.context.clearError()
+        TripsApiService.getTrips()
+            .then(this.context.setTripList)
+            .then(this.context.setError)
+    }
+
+    renderTrips() {
+        const { tripList = [] } = this.context
+        return tripList.map(trip => 
+            <Trip
+                key={trip.id}
+                trip={trip}
+            />
+            )
+    }
+
+    render() {
+        const { error } = this.context
+        return (
+          <Section list className='Vault'>
+            {error
+              ? <p className='red'>There was an error, try again</p>
+              : this.renderTrips()}
+          </Section>
+        )
+      }
+/*
     render() {
         console.log('context is', this.context)
         return (
@@ -26,6 +57,7 @@ class Vault extends Component {
             </section>
         )
     }  
+    */
 }
 
 export default Vault;
