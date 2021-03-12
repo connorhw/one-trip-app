@@ -1,7 +1,7 @@
 import React from 'react'
 //import { Link } from 'react-router-dom'
 import './Vault.css'
-import TripsContext from '../TripsContext/TripsContext'
+//import TripsContext from '../TripsContext/TripsContext'
 import Trip from '../Trip/Trip'
 import { Component } from 'react'
 import TripsApiService from '../services/trip-api-service'
