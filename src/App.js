@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const allTripsUrl = 'http://localhost:8000/api/trips'
+    const allTripsUrl = 'http://localhost:1337/api/trips'
     fetch(allTripsUrl, {
       method:'GET',
     })
