@@ -10,6 +10,7 @@ import SignUp from '../src/components/SignUp/SignUp';
 import TripsContext from './components/TripsContext/TripsContext.js';
 //import { Context } from 'mocha';
 import TripPage from './components/TripPage/TripPage.js';
+import config from './config'
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +24,11 @@ class App extends Component {
     const allTripsUrl = 'http://localhost:1337/api/trips'
     fetch(allTripsUrl, {
       method:'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${config.TOKEN_KEY}`
+      }
+
     })
      .then(response => {
       if(!response.ok) {

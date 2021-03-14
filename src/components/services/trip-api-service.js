@@ -5,7 +5,9 @@ const TripsApiService = {
     getTrips() {
         return fetch(`${config.API_ENDPOINT}/trips`, {
             headers: {
-                'authorization': `basic ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json',
+                'authorization': `Bearer ${TokenService.getAuthToken()}`,
+                //'Authorization': `Bearer ${config.TOKEN_KEY}`
             },
         }) 
             .then(res => 
@@ -15,8 +17,12 @@ const TripsApiService = {
             )
     },
     getTrip(tripId) {
-        return fetch(`${config.API_ENDPOINT}/trips/${tripId}`)
+        return fetch(`${config.API_ENDPOINT}/trips/${tripId}`, {
+            'content-type': 'application/json',
+            'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        })
             .then(res =>
+                console.log(res)
                 (!res.ok)
                 ? res.json().then(e => Promise.reject(e))
                 : res.json()
