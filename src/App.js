@@ -26,7 +26,7 @@ class App extends Component {
       method:'GET',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `Bearer ${config.TOKEN_KEY}`
+        'Authorization': `Bearer ${config.API_TOKEN}`
       }
 
     })
