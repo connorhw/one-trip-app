@@ -21,14 +21,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const allTripsUrl = 'http://localhost:1337/api/trips'
-    fetch(allTripsUrl, {
-      method:'GET',
+    //const allTripsUrl = 'http://localhost:1337/api/trips'
+    fetch(`${config.API_ENDPOINT}/trips`, {
+      //mode: 'no-cors',
+      //method:'GET',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `Bearer ${config.API_TOKEN}`
-      }
-
+        'authorization': `Bearer ${config.API_TOKEN}`
+      },
     })
      .then(response => {
       if(!response.ok) {
@@ -43,6 +43,7 @@ class App extends Component {
           trips: res
         })
       })
+      
   }
 
   render() {
