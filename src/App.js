@@ -21,29 +21,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    //const allTripsUrl = 'http://localhost:1337/api/trips'
-    fetch(`${config.API_ENDPOINT}/trips`, {
-      mode: 'no-cors',
-      method:'GET',
-      headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${config.API_TOKEN}`
-      },
+    const allTripsUrl = 'http://localhost:1337/api/trips'
+    fetch(allTripsUrl, {
+      method: 'GET',
+      //xmode: 'no-cors',
+
     })
-     .then(response => {
+    .then(response => {
       if(!response.ok) {
         throw new Error(response.status)
       }
       const res = response.json()
       console.log(res)
       return res;
-     })
-      .then(res => {
-        this.setState({
-          trips: res
-        })
+    })
+    .then(res => {
+      this.setState({
+        trips:res
       })
-      
+    })
+  
   }
 
   render() {
