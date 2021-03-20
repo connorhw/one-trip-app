@@ -21,13 +21,30 @@ class App extends Component {
   }
 
   componentDidMount() {
+    /*
+    fetch('http://localhost:1337/api/trips', {
+      headers: {
+        //'content-type': 'application/json',
+        //'authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'authorization': `Bearer ${config.API_TOKEN}`,
+      },
+    })
+    .then(res =>
+      console.log(res)
+      (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+    )
+    */
+    
     const allTripsUrl = 'http://localhost:1337/api/trips'
     fetch(allTripsUrl, {
       method: 'GET',
-      //xmode: 'no-cors',
+      //mode: 'no-cors',
+      'authorization': `Bearer ${config.API_TOKEN}`,
 
     })
-    .then(response => {
+      .then(response => {
       if(!response.ok) {
         throw new Error(response.status)
       }
