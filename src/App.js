@@ -41,7 +41,7 @@ class App extends Component {
     fetch(allTripsUrl, {
       method: 'GET',
       //mode: 'no-cors',
-      'authorization': `Bearer ${config.API_TOKEN}`,
+      //'Authorization': `Bearer ${config.API_TOKEN}`,
 
     })
       .then(response => {
@@ -54,7 +54,7 @@ class App extends Component {
     })
     .then(res => {
       this.setState({
-        trips:res
+        trips: res
       })
     })
   
@@ -64,6 +64,7 @@ class App extends Component {
     const contextValue = {
       trips: this.state.trips
     }
+    console.log(contextValue)
     return (
       <TripsContext.Provider value={contextValue}>
       <BrowserRouter>

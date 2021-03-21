@@ -38,7 +38,7 @@ class Vault extends Component {
           </Section>
         )
       }
-/*
+    /*
     render() {
         console.log('context is', this.context)
         return (
