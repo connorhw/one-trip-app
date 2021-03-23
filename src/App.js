@@ -21,43 +21,25 @@ class App extends Component {
   }
 
   componentDidMount() {
-    /*
+    
     fetch('http://localhost:1337/api/trips', {
+      method: 'GET',
       headers: {
         //'content-type': 'application/json',
         //'authorization': `Bearer ${TokenService.getAuthToken()}`,
-        'authorization': `Bearer ${config.API_TOKEN}`,
+        'Authorization': `Bearer ${config.API_TOKEN}`,
       },
     })
     .then(res =>
-      console.log(res)
       (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
     )
-    */
-    
-    const allTripsUrl = 'http://localhost:1337/api/trips'
-    fetch(allTripsUrl, {
-      method: 'GET',
-      //mode: 'no-cors',
-      //'Authorization': `Bearer ${config.API_TOKEN}`,
-
-    })
-      .then(response => {
-      if(!response.ok) {
-        throw new Error(response.status)
-      }
-      const res = response.json()
-      console.log(res)
-      return res;
-    })
     .then(res => {
       this.setState({
         trips: res
       })
     })
-  
   }
 
   render() {
