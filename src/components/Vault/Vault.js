@@ -29,6 +29,7 @@ class Vault extends Component {
     }
 
     render() {
+        console.log(this.context)
         const { error } = this.context
         return (
           <Section list className='Vault'>
