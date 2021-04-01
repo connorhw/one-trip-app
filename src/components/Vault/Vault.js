@@ -7,10 +7,12 @@ import { Component } from 'react'
 import TripsApiService from '../services/trip-api-service'
 import TripListContext from '../TripsContext/TripListContext'
 import { Section } from '../../components/Utils/Utils'
+import TripListProvider from '../TripsContext/TripListContext'
 
 
 class Vault extends Component {
-    static contextType = TripListContext;
+    //static contextType = TripListContext;
+    static contextType = TripListProvider;
     componentDidMount() {
         this.context.clearError()
         TripsApiService.getTrips()
@@ -30,6 +32,7 @@ class Vault extends Component {
 
     render() {
         console.log(this.context)
+    
         const { error } = this.context
         return (
           <Section list className='Vault'>
